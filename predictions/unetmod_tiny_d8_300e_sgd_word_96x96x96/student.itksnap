@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--ITK-SNAP (itksnap.org) Project File
+
+This file can be moved/copied along with the images that it references
+as long as the relative location of the images to the project file is 
+the same. Do not modify the SaveLocation entry, or this will not work.
+-->
+<!DOCTYPE registry [
+<!ELEMENT registry (entry*,folder*)>
+<!ELEMENT folder (entry*,folder*)>
+<!ELEMENT entry EMPTY>
+<!ATTLIST folder key CDATA #REQUIRED>
+<!ATTLIST entry key CDATA #REQUIRED>
+<!ATTLIST entry value CDATA #REQUIRED>
+]>
+<registry>
+  <entry key="SaveLocation" value="S:/Desktop Collections/my_paper/third/predictions/unetmod_tiny_d8_300e_sgd_word_96x96x96" />
+  <entry key="Version" value="20190612" />
+  <folder key="Annotations" >
+    <entry key="Format" value="ITK-SNAP Annotation File" />
+    <entry key="FormatDate" value="20150624" />
+  </folder>
+  <folder key="Layers" >
+    <folder key="Layer[000]" >
+      <entry key="AbsolutePath" value="G:/Datasets/WORD-V0.1.0/WORD/imagesVal/word_0025.nii.gz" />
+      <entry key="Role" value="MainRole" />
+      <entry key="Tags" value="" />
+      <folder key="LayerMetaData" >
+        <entry key="Alpha" value="255" />
+        <entry key="CustomNickName" value="" />
+        <entry key="Sticky" value="0" />
+        <entry key="Tags" value="" />
+        <folder key="DisplayMapping" >
+          <folder key="ColorMap" >
+            <entry key="Preset" value="Grayscale" />
+          </folder>
+          <folder key="Curve" >
+            <entry key="NumberOfControlPoints" value="3" />
+            <folder key="ControlPoint[0]" >
+              <entry key="tValue" value="0.467345" />
+              <entry key="xValue" value="0" />
+            </folder>
+            <folder key="ControlPoint[1]" >
+              <entry key="tValue" value="0.502215" />
+              <entry key="xValue" value="0.5" />
+            </folder>
+            <folder key="ControlPoint[2]" >
+              <entry key="tValue" value="0.537086" />
+              <entry key="xValue" value="1" />
+            </folder>
+          </folder>
+        </folder>
+      </folder>
+      <folder key="ProjectMetaData" >
+        <entry key="GaussianBlurScale" value="1" />
+        <entry key="RemappingExponent" value="3" />
+        <entry key="RemappingSteepness" value="0.04" />
+        <folder key="Files" >
+          <folder key="Grey" >
+            <entry key="Dimensions" value="512 512 152" />
+            <entry key="Orientation" value="RAI" />
+          </folder>
+        </folder>
+        <folder key="IOHistory" >
+          <folder key="LabelImage" >
+            <entry key="ArraySize" value="1" />
+            <entry key="Element[0]" value="S:/Desktop Collections/my_paper/third/predictions/unetmod_tiny_d8_300e_sgd_word_96x96x96/20240603_181227/predictions/word_0025.nii.gz" />
+          </folder>
+        </folder>
+        <folder key="IRIS" >
+          <entry key="SliceViewLayerLayout" value="Stacked" />
+          <folder key="BoundingBox" >
+            <entry key="InterpolationMethod" value="Nearest" />
+            <entry key="ResampleDimensions" value="512 512 152" />
+            <entry key="SeedWithCurrentSegmentation" value="0" />
+            <folder key="ROIBox[0]" >
+              <entry key="Index" value="0" />
+              <entry key="Size" value="512" />
+            </folder>
+            <folder key="ROIBox[1]" >
+              <entry key="Index" value="0" />
+              <entry key="Size" value="512" />
+            </folder>
+            <folder key="ROIBox[2]" >
+              <entry key="Index" value="0" />
+              <entry key="Size" value="152" />
+            </folder>
+          </folder>
+          <folder key="DisplayMapping" >
+            <folder key="ColorMap" >
+              <entry key="Preset" value="Grayscale" />
+            </folder>
+            <folder key="Curve" >
+              <entry key="NumberOfControlPoints" value="3" />
+              <folder key="ControlPoint[0]" >
+                <entry key="tValue" value="0.467345" />
+                <entry key="xValue" value="0" />
+              </folder>
+              <folder key="ControlPoint[1]" >
+                <entry key="tValue" value="0.502215" />
+                <entry key="xValue" value="0.5" />
+              </folder>
+              <folder key="ControlPoint[2]" >
+                <entry key="tValue" value="0.537086" />
+                <entry key="xValue" value="1" />
+              </folder>
+            </folder>
+          </folder>
+          <folder key="LabelState" >
+            <entry key="CoverageMode" value="OverAll" />
+            <entry key="DrawingLabel" value="1" />
+            <entry key="OverwriteLabel" value="0" />
+            <entry key="PolygonInvert" value="0" />
+            <entry key="SegmentationAlpha" value="0.7" />
+          </folder>
+          <folder key="LabelTable" >
+            <entry key="NumberOfElements" value="16" />
+            <folder key="Element[0]" >
+              <entry key="Alpha" value="255" />
+              <entry key="Color" value="255 0 0" />
+              <entry key="Flags" value="1 1" />
+              <entry key="Index" value="1" />
+              <entry key="Label" value="Label 1" />
+            </folder>
+            <folder key="Element[10]" >
+              <entry key="Alpha" value="255" />
+              <entry key="Color" value="102 205 170" />
+              <entry key="Flags" value="1 1" />
+              <entry key="Index" value="11" />
+              <entry key="Label" value="Label 11" />
+            </folder>
+            <folder key="Element[11]" >
+              <entry key="Alpha" value="255" />
+              <entry key="Color" value="0 0 128" />
+              <entry key="Flags" value="1 1" />
+              <entry key="Index" value="12" />
+              <entry key="Label" value="Label 12" />
+            </folder>
+            <folder key="Element[12]" >
+              <entry key="Alpha" value="255" />
+              <entry key="Color" value="0 139 139" />
+              <entry key="Flags" value="1 1" />
+              <entry key="Index" value="13" />
+              <entry key="Label" value="Label 13" />
+            </folder>
+            <folder key="Element[13]" >
+              <entry key="Alpha" value="255" />
+              <entry key="Color" value="46 139 87" />
+              <entry key="Flags" value="1 1" />
+              <entry key="Index" value="14" />
+              <entry key="Label" value="Label 14" />
+            </folder>
+            <folder key="Element[14]" >
+              <entry key="Alpha" value="255" />
+              <entry key="Color" value="255 228 225" />
+              <entry key="Flags" value="1 1" />
+              <entry key="Index" value="15" />
+              <entry key="Label" value="Label 15" />
+            </folder>
+            <folder key="Element[15]" >
+              <entry key="Alpha" value="255" />
+              <entry key="Color" value="106 90 205" />
+              <entry key="Flags" value="1 1" />
+              <entry key="Index" value="16" />
+              <entry key="Label" value="Label 16" />
+            </folder>
+            <folder key="Element[1]" >
+              <entry key="Alpha" value="255" />
+              <entry key="Color" value="0 255 0" />
+              <entry key="Flags" value="1 1" />
+              <entry key="Index" value="2" />
+              <entry key="Label" value="Label 2" />
+            </folder>
+            <folder key="Element[2]" >
+              <entry key="Alpha" value="255" />
+              <entry key="Color" value="0 0 255" />
+              <entry key="Flags" value="1 1" />
+              <entry key="Index" value="3" />
+              <entry key="Label" value="Label 3" />
+            </folder>
+            <folder key="Element[3]" >
+              <entry key="Alpha" value="255" />
+              <entry key="Color" value="255 255 0" />
+              <entry key="Flags" value="1 1" />
+              <entry key="Index" value="4" />
+              <entry key="Label" value="Label 4" />
+            </folder>
+            <folder key="Element[4]" >
+              <entry key="Alpha" value="255" />
+              <entry key="Color" value="0 255 255" />
+              <entry key="Flags" value="1 1" />
+              <entry key="Index" value="5" />
+              <entry key="Label" value="Label 5" />
+            </folder>
+            <folder key="Element[5]" >
+              <entry key="Alpha" value="255" />
+              <entry key="Color" value="255 0 255" />
+              <entry key="Flags" value="1 1" />
+              <entry key="Index" value="6" />
+              <entry key="Label" value="Label 6" />
+            </folder>
+            <folder key="Element[6]" >
+              <entry key="Alpha" value="255" />
+              <entry key="Color" value="255 239 213" />
+              <entry key="Flags" value="1 1" />
+              <entry key="Index" value="7" />
+              <entry key="Label" value="Label 7" />
+            </folder>
+            <folder key="Element[7]" >
+              <entry key="Alpha" value="255" />
+              <entry key="Color" value="0 0 205" />
+              <entry key="Flags" value="1 1" />
+              <entry key="Index" value="8" />
+              <entry key="Label" value="Label 8" />
+            </folder>
+            <folder key="Element[8]" >
+              <entry key="Alpha" value="255" />
+              <entry key="Color" value="205 133 63" />
+              <entry key="Flags" value="1 1" />
+              <entry key="Index" value="9" />
+              <entry key="Label" value="Label 9" />
+            </folder>
+            <folder key="Element[9]" >
+              <entry key="Alpha" value="255" />
+              <entry key="Color" value="210 180 140" />
+              <entry key="Flags" value="1 1" />
+              <entry key="Index" value="10" />
+              <entry key="Label" value="Label 10" />
+            </folder>
+          </folder>
+          <folder key="MeshOptions" >
+            <entry key="DecimateFeatureAngle" value="45" />
+            <entry key="DecimateMaximumError" value="0.002" />
+            <entry key="DecimatePreserveTopology" value="1" />
+            <entry key="DecimateTargetReduction" value="0.95" />
+            <entry key="GaussianError" value="0.03" />
+            <entry key="GaussianStandardDeviation" value="0.8" />
+            <entry key="MeshSmoothingBoundarySmoothing" value="0" />
+            <entry key="MeshSmoothingConvergence" value="0" />
+            <entry key="MeshSmoothingFeatureAngle" value="45" />
+            <entry key="MeshSmoothingFeatureEdgeSmoothing" value="0" />
+            <entry key="MeshSmoothingIterations" value="20" />
+            <entry key="MeshSmoothingRelaxationFactor" value="0.01" />
+            <entry key="UseDecimation" value="0" />
+            <entry key="UseGaussianSmoothing" value="1" />
+            <entry key="UseMeshSmoothing" value="0" />
+          </folder>
+        </folder>
+        <folder key="SNAP" >
+          <folder key="SnakeParameters" >
+            <entry key="AdvectionSpeedExponent" value="0" />
+            <entry key="AdvectionWeight" value="0" />
+            <entry key="AutomaticTimeStep" value="1" />
+            <entry key="Clamp" value="1" />
+            <entry key="CurvatureSpeedExponent" value="-1" />
+            <entry key="CurvatureWeight" value="0.2" />
+            <entry key="Ground" value="5" />
+            <entry key="LaplacianSpeedExponent" value="0" />
+            <entry key="LaplacianWeight" value="0" />
+            <entry key="PropagationSpeedExponent" value="1" />
+            <entry key="PropagationWeight" value="1" />
+            <entry key="SnakeType" value="RegionCompetition" />
+            <entry key="SolverAlgorithm" value="ParallelSparseField" />
+            <entry key="TimeStepFactor" value="1" />
+          </folder>
+        </folder>
+      </folder>
+    </folder>
+    <folder key="Layer[001]" >
+      <entry key="AbsolutePath" value="S:/Desktop Collections/my_paper/third/predictions/unetmod_tiny_d8_300e_sgd_word_96x96x96/20240603_181227/predictions/word_0025.nii.gz" />
+      <entry key="Role" value="SegmentationRole" />
+      <entry key="Tags" value="" />
+      <folder key="IOHints" >
+        <entry key="Format" value="NiFTI" />
+      </folder>
+      <folder key="LayerMetaData" >
+        <entry key="Alpha" value="2.3342e-313" />
+        <entry key="CustomNickName" value="" />
+        <entry key="Sticky" value="1" />
+        <entry key="Tags" value="" />
+      </folder>
+    </folder>
+  </folder>
+</registry>

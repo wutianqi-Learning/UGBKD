@@ -1,0 +1,123 @@
+{
+    "os": "Linux-6.5.0-15-generic-x86_64-with-glibc2.17",
+    "python": "3.8.16",
+    "heartbeatAt": "2024-06-06T08:16:05.181367",
+    "startedAt": "2024-06-06T08:16:05.053961",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "configs/distill/msftd/multiscale_eta050_swinunetr_base_espnetv2_300e_sgd_word_96x96x96.py",
+        "work_dirs/multiscale_eta050_swinunetr_base_espnetv2_300e_sgd_word_96x96x96/5-run_20240518_180058/run3/best_Dice_78-48_epoch_300.pth",
+        "--save"
+    ],
+    "state": "running",
+    "program": "test.py",
+    "codePath": "test.py",
+    "host": "jz207-HP-Z2-Tower-G9-Workstation-Desktop-PC",
+    "username": "jz207",
+    "executable": "/home/jz207/miniconda3/envs/zhangdw/bin/python",
+    "cpu_count": 10,
+    "cpu_count_logical": 16,
+    "cpu_freq": {
+        "current": 1955.85225,
+        "min": 800.0,
+        "max": 4575.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 800.31,
+            "min": 800.0,
+            "max": 4900.0
+        },
+        {
+            "current": 800.302,
+            "min": 800.0,
+            "max": 4900.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 4900.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 4900.0
+        },
+        {
+            "current": 932.509,
+            "min": 800.0,
+            "max": 4900.0
+        },
+        {
+            "current": 3975.762,
+            "min": 800.0,
+            "max": 4900.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 4900.0
+        },
+        {
+            "current": 4550.466,
+            "min": 800.0,
+            "max": 4900.0
+        },
+        {
+            "current": 4502.167,
+            "min": 800.0,
+            "max": 4900.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 4900.0
+        },
+        {
+            "current": 4459.155,
+            "min": 800.0,
+            "max": 4900.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 4900.0
+        },
+        {
+            "current": 3017.828,
+            "min": 800.0,
+            "max": 3600.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 3600.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 3600.0
+        },
+        {
+            "current": 800.447,
+            "min": 800.0,
+            "max": 3600.0
+        }
+    ],
+    "disk": {
+        "total": 124.11330032348633,
+        "used": 22.073455810546875
+    },
+    "gpu": "NVIDIA RTX A4000",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA RTX A4000",
+            "memory_total": 17171480576
+        }
+    ],
+    "memory": {
+        "total": 31.047908782958984
+    }
+}

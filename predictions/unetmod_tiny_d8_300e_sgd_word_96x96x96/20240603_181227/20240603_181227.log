@@ -1,0 +1,366 @@
+2024/06/03 18:12:27 - mmengine - INFO - 
+------------------------------------------------------------
+System environment:
+    sys.platform: linux
+    Python: 3.8.19 (default, Mar 20 2024, 19:58:24) [GCC 11.2.0]
+    CUDA available: True
+    MUSA available: False
+    numpy_random_seed: 2056846005
+    GPU 0: NVIDIA RTX A4000
+    CUDA_HOME: /usr/local/cuda
+    NVCC: Cuda compilation tools, release 11.3, V11.3.109
+    GCC: gcc (Ubuntu 8.4.0-3ubuntu2) 8.4.0
+    PyTorch: 1.12.0
+    PyTorch compiling details: PyTorch built with:
+  - GCC 9.3
+  - C++ Version: 201402
+  - Intel(R) oneAPI Math Kernel Library Version 2023.1-Product Build 20230303 for Intel(R) 64 architecture applications
+  - Intel(R) MKL-DNN v2.6.0 (Git Hash 52b5f107dd9cf10910aaa19cb47f3abf9b349815)
+  - OpenMP 201511 (a.k.a. OpenMP 4.5)
+  - LAPACK is enabled (usually provided by MKL)
+  - NNPACK is enabled
+  - CPU capability usage: AVX2
+  - CUDA Runtime 11.3
+  - NVCC architecture flags: -gencode;arch=compute_37,code=sm_37;-gencode;arch=compute_50,code=sm_50;-gencode;arch=compute_60,code=sm_60;-gencode;arch=compute_61,code=sm_61;-gencode;arch=compute_70,code=sm_70;-gencode;arch=compute_75,code=sm_75;-gencode;arch=compute_80,code=sm_80;-gencode;arch=compute_86,code=sm_86;-gencode;arch=compute_37,code=compute_37
+  - CuDNN 8.3.2  (built against CUDA 11.5)
+  - Magma 2.5.2
+  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=11.3, CUDNN_VERSION=8.3.2, CXX_COMPILER=/opt/rh/devtoolset-9/root/usr/bin/c++, CXX_FLAGS= -Wno-deprecated -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -fopenmp -DNDEBUG -DUSE_KINETO -DUSE_FBGEMM -DUSE_QNNPACK -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -DEDGE_PROFILER_USE_KINETO -O2 -fPIC -Wno-narrowing -Wall -Wextra -Werror=return-type -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-unused-parameter -Wno-unused-function -Wno-unused-result -Wno-unused-local-typedefs -Wno-strict-overflow -Wno-strict-aliasing -Wno-error=deprecated-declarations -Wno-stringop-overflow -Wno-psabi -Wno-error=pedantic -Wno-error=redundant-decls -Wno-error=old-style-cast -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Werror=cast-function-type -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, PERF_WITH_AVX512=1, TORCH_VERSION=1.12.0, USE_CUDA=ON, USE_CUDNN=ON, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_MKL=ON, USE_MKLDNN=OFF, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, 
+
+    TorchVision: 0.13.0
+    OpenCV: 4.7.0
+    MMEngine: 0.10.3
+
+Runtime environment:
+    cudnn_benchmark: True
+    mp_cfg: {'mp_start_method': 'fork', 'opencv_num_threads': 0}
+    dist_cfg: {'backend': 'nccl'}
+    seed: 2056846005
+    Distributed launcher: none
+    Distributed training: False
+    GPU number: 1
+------------------------------------------------------------
+
+2024/06/03 18:12:27 - mmengine - INFO - Config:
+custom_hooks = [
+    dict(
+        after_epoch=True,
+        after_iter=False,
+        before_epoch=False,
+        type='seg.engine.hooks.empty_cache_hook.EmptyCacheHook'),
+]
+dataloader_cfg = dict(
+    RandFlipd_prob=0.2,
+    RandRotate90d_prob=0.2,
+    RandScaleIntensityd_prob=0.1,
+    RandShiftIntensityd_prob=0.1,
+    a_max=250,
+    a_min=-175.0,
+    b_max=1.0,
+    b_min=0.0,
+    batch_size=1,
+    data_dir='data/WORD',
+    data_name='WORD',
+    distributed=False,
+    json_list='dataset.json',
+    meta_info='seg.datasets.monai_dataset.WORD_METAINFO',
+    num_samples=4,
+    roi_x=96,
+    roi_y=96,
+    roi_z=96,
+    space_x=1.5,
+    space_y=1.5,
+    space_z=2.0,
+    train_case_nums=100,
+    use_normal_dataset=True,
+    use_smart_dataset=False,
+    use_test_data=False,
+    workers=2)
+default_hooks = dict(
+    checkpoint=dict(
+        by_epoch=True,
+        interval=25,
+        max_keep_ckpts=1,
+        rule='greater',
+        save_best=[
+            'Dice',
+        ],
+        type='seg.engine.hooks.MyCheckpointHook'),
+    logger=dict(
+        interval=10,
+        type='seg.engine.hooks.logger_hook.MyLoggerHook',
+        val_interval=1),
+    param_scheduler=dict(type='mmengine.hooks.ParamSchedulerHook'),
+    sampler_seed=dict(type='mmengine.hooks.DistSamplerSeedHook'),
+    timer=dict(type='mmengine.hooks.IterTimerHook'),
+    visualization=dict(type='mmseg.engine.hooks.SegVisualizationHook'))
+default_scope = None
+env_cfg = dict(
+    cudnn_benchmark=True,
+    dist_cfg=dict(backend='nccl'),
+    mp_cfg=dict(mp_start_method='fork', opencv_num_threads=0))
+launcher = 'none'
+load_from = 'ckpts/unetmod_tiny_d8_300e_sgd_word_96x96x96/best_Dice_76-40_epoch_300.pth'
+log_level = 'INFO'
+log_processor = dict(by_epoch=True)
+model = dict(
+    backbone=dict(
+        channels=(
+            32,
+            64,
+            128,
+            256,
+        ),
+        in_channels=1,
+        num_res_units=0,
+        out_channels=17,
+        spatial_dims=3,
+        strides=(
+            2,
+            2,
+            2,
+        ),
+        type='seg.models.unet.monai_unet_mod.UNetMod'),
+    infer_cfg=dict(
+        inf_size=[
+            96,
+            96,
+            96,
+        ], infer_overlap=0.5, sw_batch_size=4),
+    loss_functions=dict(
+        softmax=True, to_onehot_y=True, type='monai.losses.DiceCELoss'),
+    num_classes=17,
+    roi_shapes=[
+        96,
+        96,
+        96,
+    ],
+    type='seg.models.segmentors.monai_model.MonaiSeg')
+optim_wrapper = dict(
+    clip_grad=None,
+    optimizer=dict(
+        lr=0.01, momentum=0.9, type='torch.optim.SGD', weight_decay=0.0005),
+    type='mmengine.optim.OptimWrapper')
+optimizer = dict(
+    lr=0.01, momentum=0.9, type='torch.optim.SGD', weight_decay=0.0005)
+param_scheduler = [
+    dict(
+        begin=0,
+        by_epoch=True,
+        end=300,
+        eta_min=1e-06,
+        power=0.9,
+        type='mmengine.optim.scheduler.PolyLR'),
+]
+resume = False
+roi = [
+    96,
+    96,
+    96,
+]
+runner_type = 'seg.engine.runner.monai_runner.MonaiRunner'
+save = True
+test_cfg = dict(type='seg.engine.runner.monai_loops.MonaiTestLoop')
+test_evaluator = dict(
+    metrics=dict(
+        metrics=[
+            'Dice',
+            'HD95',
+        ],
+        num_classes=17,
+        type='seg.evaluation.metrics.monai_metric.MonaiMetric'),
+    type='seg.evaluation.monai_evaluator.MonaiEvaluator')
+test_mode = True
+train_cfg = dict(
+    max_epochs=300,
+    type='mmengine.runner.loops.EpochBasedTrainLoop',
+    val_begin=100,
+    val_interval=25)
+val_cfg = dict(type='seg.engine.runner.monai_loops.MonaiValLoop')
+val_evaluator = dict(
+    metrics=dict(
+        metrics=[
+            'Dice',
+            'HD95',
+        ],
+        num_classes=17,
+        type='seg.evaluation.metrics.monai_metric.MonaiMetric'),
+    type='seg.evaluation.monai_evaluator.MonaiEvaluator')
+vis_backends = [
+    dict(type='mmengine.visualization.vis_backend.LocalVisBackend'),
+    dict(
+        define_metric_cfg=dict(Dice='max'),
+        init_kwargs=dict(name='unet-tiny-sgd-300e', project='word'),
+        type='mmengine.visualization.vis_backend.WandbVisBackend'),
+]
+visualizer = dict(
+    name='visualizer',
+    type='mmseg.visualization.local_visualizer.SegLocalVisualizer',
+    vis_backends=[
+        dict(type='mmengine.visualization.vis_backend.LocalVisBackend'),
+        dict(
+            define_metric_cfg=dict(Dice='max'),
+            init_kwargs=dict(name='unet-tiny-sgd-300e', project='word'),
+            type='mmengine.visualization.vis_backend.WandbVisBackend'),
+    ])
+work_dir = './save_dirs/unetmod_tiny_d8_300e_sgd_word_96x96x96'
+
+2024/06/03 18:12:29 - mmengine - INFO - Distributed training is not used, all SyncBatchNorm (SyncBN) layers in the model will be automatically reverted to BatchNormXd layers if they are used.
+2024/06/03 18:12:29 - mmengine - INFO - Hooks will be executed in the following order:
+before_run:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(BELOW_NORMAL) MyLoggerHook                       
+ -------------------- 
+before_train:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(VERY_LOW    ) MyCheckpointHook                   
+ -------------------- 
+before_train_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) DistSamplerSeedHook                
+(NORMAL      ) EmptyCacheHook                     
+ -------------------- 
+before_train_iter:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_train_iter:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) SegVisualizationHook               
+(NORMAL      ) EmptyCacheHook                     
+(BELOW_NORMAL) MyLoggerHook                       
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) MyCheckpointHook                   
+ -------------------- 
+after_train_epoch:
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) EmptyCacheHook                     
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) MyCheckpointHook                   
+ -------------------- 
+before_val:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+before_val_epoch:
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) EmptyCacheHook                     
+ -------------------- 
+before_val_iter:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_val_iter:
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) SegVisualizationHook               
+(NORMAL      ) EmptyCacheHook                     
+(BELOW_NORMAL) MyLoggerHook                       
+ -------------------- 
+after_val_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) EmptyCacheHook                     
+(BELOW_NORMAL) MyLoggerHook                       
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) MyCheckpointHook                   
+ -------------------- 
+after_val:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+after_train:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(VERY_LOW    ) MyCheckpointHook                   
+ -------------------- 
+before_test:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+before_test_epoch:
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) EmptyCacheHook                     
+ -------------------- 
+before_test_iter:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_test_iter:
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) SegVisualizationHook               
+(NORMAL      ) EmptyCacheHook                     
+(BELOW_NORMAL) MyLoggerHook                       
+ -------------------- 
+after_test_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) EmptyCacheHook                     
+(BELOW_NORMAL) MyLoggerHook                       
+ -------------------- 
+after_test:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+after_run:
+(NORMAL      ) EmptyCacheHook                     
+(BELOW_NORMAL) MyLoggerHook                       
+ -------------------- 
+2024/06/03 18:12:29 - mmengine - WARNING - The prefix is not set in metric class MonaiMetric.
+2024/06/03 18:12:29 - mmengine - INFO - Load checkpoint from ckpts/unetmod_tiny_d8_300e_sgd_word_96x96x96/best_Dice_76-40_epoch_300.pth
+2024/06/03 18:12:36 - mmengine - INFO - Prediction is saved at:
+2024/06/03 18:12:36 - mmengine - INFO - /home/s316/workspace2/zhangdw/monai_mmengine/save_dirs/unetmod_tiny_d8_300e_sgd_word_96x96x96/20240603_181227/predictions/word_0001.nii.gz
+2024/06/03 18:12:36 - mmengine - INFO - Epoch(test) [ 1/20]    eta: 0:02:15  time: 7.1566  data_time: 3.4295  memory: 4149  
+2024/06/03 18:12:39 - mmengine - INFO - Prediction is saved at:
+2024/06/03 18:12:39 - mmengine - INFO - /home/s316/workspace2/zhangdw/monai_mmengine/save_dirs/unetmod_tiny_d8_300e_sgd_word_96x96x96/20240603_181227/predictions/word_0007.nii.gz
+2024/06/03 18:12:39 - mmengine - INFO - Epoch(test) [ 2/20]    eta: 0:01:31  time: 5.0755  data_time: 1.7152  memory: 5915  
+2024/06/03 18:12:42 - mmengine - INFO - Prediction is saved at:
+2024/06/03 18:12:42 - mmengine - INFO - /home/s316/workspace2/zhangdw/monai_mmengine/save_dirs/unetmod_tiny_d8_300e_sgd_word_96x96x96/20240603_181227/predictions/word_0015.nii.gz
+2024/06/03 18:12:42 - mmengine - INFO - Epoch(test) [ 3/20]    eta: 0:01:12  time: 4.2444  data_time: 1.1438  memory: 5950  
+2024/06/03 18:12:44 - mmengine - INFO - Prediction is saved at:
+2024/06/03 18:12:44 - mmengine - INFO - /home/s316/workspace2/zhangdw/monai_mmengine/save_dirs/unetmod_tiny_d8_300e_sgd_word_96x96x96/20240603_181227/predictions/word_0025.nii.gz
+2024/06/03 18:12:44 - mmengine - INFO - Epoch(test) [ 4/20]    eta: 0:00:58  time: 3.6856  data_time: 0.8580  memory: 3652  
+2024/06/03 18:12:47 - mmengine - INFO - Prediction is saved at:
+2024/06/03 18:12:47 - mmengine - INFO - /home/s316/workspace2/zhangdw/monai_mmengine/save_dirs/unetmod_tiny_d8_300e_sgd_word_96x96x96/20240603_181227/predictions/word_0031.nii.gz
+2024/06/03 18:12:47 - mmengine - INFO - Epoch(test) [ 5/20]    eta: 0:00:52  time: 3.5280  data_time: 0.6866  memory: 6517  
+2024/06/03 18:12:50 - mmengine - INFO - Prediction is saved at:
+2024/06/03 18:12:50 - mmengine - INFO - /home/s316/workspace2/zhangdw/monai_mmengine/save_dirs/unetmod_tiny_d8_300e_sgd_word_96x96x96/20240603_181227/predictions/word_0035.nii.gz
+2024/06/03 18:12:50 - mmengine - INFO - Epoch(test) [ 6/20]    eta: 0:00:47  time: 3.4245  data_time: 0.5723  memory: 5880  
+2024/06/03 18:12:52 - mmengine - INFO - Prediction is saved at:
+2024/06/03 18:12:52 - mmengine - INFO - /home/s316/workspace2/zhangdw/monai_mmengine/save_dirs/unetmod_tiny_d8_300e_sgd_word_96x96x96/20240603_181227/predictions/word_0039.nii.gz
+2024/06/03 18:12:52 - mmengine - INFO - Epoch(test) [ 7/20]    eta: 0:00:41  time: 3.2218  data_time: 0.4906  memory: 5066  
+2024/06/03 18:12:55 - mmengine - INFO - Prediction is saved at:
+2024/06/03 18:12:55 - mmengine - INFO - /home/s316/workspace2/zhangdw/monai_mmengine/save_dirs/unetmod_tiny_d8_300e_sgd_word_96x96x96/20240603_181227/predictions/word_0045.nii.gz
+2024/06/03 18:12:55 - mmengine - INFO - Epoch(test) [ 8/20]    eta: 0:00:38  time: 3.1822  data_time: 0.4294  memory: 5319  
+2024/06/03 18:12:57 - mmengine - INFO - Prediction is saved at:
+2024/06/03 18:12:57 - mmengine - INFO - /home/s316/workspace2/zhangdw/monai_mmengine/save_dirs/unetmod_tiny_d8_300e_sgd_word_96x96x96/20240603_181227/predictions/word_0048.nii.gz
+2024/06/03 18:12:57 - mmengine - INFO - Epoch(test) [ 9/20]    eta: 0:00:34  time: 3.1169  data_time: 0.3818  memory: 5756  
+2024/06/03 18:12:59 - mmengine - INFO - Prediction is saved at:
+2024/06/03 18:12:59 - mmengine - INFO - /home/s316/workspace2/zhangdw/monai_mmengine/save_dirs/unetmod_tiny_d8_300e_sgd_word_96x96x96/20240603_181227/predictions/word_0066.nii.gz
+2024/06/03 18:12:59 - mmengine - INFO - Epoch(test) [10/20]    eta: 0:00:30  time: 3.0288  data_time: 0.3437  memory: 4053  
+2024/06/03 18:13:02 - mmengine - INFO - Prediction is saved at:
+2024/06/03 18:13:02 - mmengine - INFO - /home/s316/workspace2/zhangdw/monai_mmengine/save_dirs/unetmod_tiny_d8_300e_sgd_word_96x96x96/20240603_181227/predictions/word_0075.nii.gz
+2024/06/03 18:13:02 - mmengine - INFO - Epoch(test) [11/20]    eta: 0:00:26  time: 2.5453  data_time: 0.0008  memory: 5950  
+2024/06/03 18:13:04 - mmengine - INFO - Prediction is saved at:
+2024/06/03 18:13:04 - mmengine - INFO - /home/s316/workspace2/zhangdw/monai_mmengine/save_dirs/unetmod_tiny_d8_300e_sgd_word_96x96x96/20240603_181227/predictions/word_0080.nii.gz
+2024/06/03 18:13:04 - mmengine - INFO - Epoch(test) [12/20]    eta: 0:00:23  time: 2.4631  data_time: 0.0009  memory: 4323  
+2024/06/03 18:13:06 - mmengine - INFO - Prediction is saved at:
+2024/06/03 18:13:06 - mmengine - INFO - /home/s316/workspace2/zhangdw/monai_mmengine/save_dirs/unetmod_tiny_d8_300e_sgd_word_96x96x96/20240603_181227/predictions/word_0083.nii.gz
+2024/06/03 18:13:06 - mmengine - INFO - Epoch(test) [13/20]    eta: 0:00:19  time: 2.3948  data_time: 0.0009  memory: 3812  
+2024/06/03 18:13:09 - mmengine - INFO - Prediction is saved at:
+2024/06/03 18:13:09 - mmengine - INFO - /home/s316/workspace2/zhangdw/monai_mmengine/save_dirs/unetmod_tiny_d8_300e_sgd_word_96x96x96/20240603_181227/predictions/word_0085.nii.gz
+2024/06/03 18:13:09 - mmengine - INFO - Epoch(test) [14/20]    eta: 0:00:16  time: 2.4754  data_time: 0.0009  memory: 5332  
+2024/06/03 18:13:11 - mmengine - INFO - Prediction is saved at:
+2024/06/03 18:13:11 - mmengine - INFO - /home/s316/workspace2/zhangdw/monai_mmengine/save_dirs/unetmod_tiny_d8_300e_sgd_word_96x96x96/20240603_181227/predictions/word_0098.nii.gz
+2024/06/03 18:13:11 - mmengine - INFO - Epoch(test) [15/20]    eta: 0:00:13  time: 2.4069  data_time: 0.0009  memory: 4392  
+2024/06/03 18:13:14 - mmengine - INFO - Prediction is saved at:
+2024/06/03 18:13:14 - mmengine - INFO - /home/s316/workspace2/zhangdw/monai_mmengine/save_dirs/unetmod_tiny_d8_300e_sgd_word_96x96x96/20240603_181227/predictions/word_0112.nii.gz
+2024/06/03 18:13:14 - mmengine - INFO - Epoch(test) [16/20]    eta: 0:00:11  time: 2.3849  data_time: 0.0009  memory: 5544  
+2024/06/03 18:13:16 - mmengine - INFO - Prediction is saved at:
+2024/06/03 18:13:16 - mmengine - INFO - /home/s316/workspace2/zhangdw/monai_mmengine/save_dirs/unetmod_tiny_d8_300e_sgd_word_96x96x96/20240603_181227/predictions/word_0137.nii.gz
+2024/06/03 18:13:16 - mmengine - INFO - Epoch(test) [17/20]    eta: 0:00:08  time: 2.4318  data_time: 0.0009  memory: 6499  
+2024/06/03 18:13:18 - mmengine - INFO - Prediction is saved at:
+2024/06/03 18:13:18 - mmengine - INFO - /home/s316/workspace2/zhangdw/monai_mmengine/save_dirs/unetmod_tiny_d8_300e_sgd_word_96x96x96/20240603_181227/predictions/word_0139.nii.gz
+2024/06/03 18:13:18 - mmengine - INFO - Epoch(test) [18/20]    eta: 0:00:05  time: 2.2932  data_time: 0.0009  memory: 3620  
+2024/06/03 18:13:19 - mmengine - INFO - Prediction is saved at:
+2024/06/03 18:13:19 - mmengine - INFO - /home/s316/workspace2/zhangdw/monai_mmengine/save_dirs/unetmod_tiny_d8_300e_sgd_word_96x96x96/20240603_181227/predictions/word_0141.nii.gz
+2024/06/03 18:13:19 - mmengine - INFO - Epoch(test) [19/20]    eta: 0:00:02  time: 2.2155  data_time: 0.0009  memory: 4118  
+2024/06/03 18:13:22 - mmengine - INFO - Prediction is saved at:
+2024/06/03 18:13:22 - mmengine - INFO - /home/s316/workspace2/zhangdw/monai_mmengine/save_dirs/unetmod_tiny_d8_300e_sgd_word_96x96x96/20240603_181227/predictions/word_0149.nii.gz
+2024/06/03 18:13:22 - mmengine - INFO - Epoch(test) [20/20]    eta: 0:00:00  time: 2.2188  data_time: 0.0009  memory: 5950  
+2024/06/03 18:13:22 - mmengine - WARNING - MonaiMetric got empty `self.results`. Please ensure that the processed results are properly added into `self.results` in `process` method.
+2024/06/03 18:13:22 - mmengine - INFO - Epoch(test) [20/20]    data_time: 0.1723  time: 2.6238
